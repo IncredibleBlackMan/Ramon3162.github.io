@@ -3,11 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>New Entry | My Diary</title>
+        <title>Sign up | My Diary</title>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-    <body id="body" class="new-entry-body">
+    <body id="body" onload="getUser()" class="update-body">
         <div id="menu">
             <div id="top-menu" class="navigation">
                 <div class="logo">
@@ -21,7 +20,7 @@
                     </div>
                     <div class="nav-links" id="top-navigation">
                         <div class="dropdown">
-                                <div class="dropbtn">
+                            <div class="dropbtn">
                                 <a href="#">Settings&nbsp;<i class="fa fa-caret-down"></i></a>
                             </div>
                             <div class="dropdown-content">
@@ -35,36 +34,19 @@
                 </div>
             </div>
         </div>
-        <div class="new-entry">
-            <div id="new-entry-title">
-                <h3>Add New Entry</h3>
-                <hr>
-            </div>
-            <div id="entry-form-content">
-                <form action="" method="POST" id="new-entry-form">
-                    <div id="form-input">
-                        <input type="text" name="title" id="title" placeholder="Entry Title">
-                    </div>
-                    <div id="form-input">
-                        <textarea name="entry" id="description" rows="7" placeholder="Entry Text"></textarea>
-                    </div>
-                    <div id="form-input">
-                        <input type="button" value="Publish Entry" onclick="publishEntry()" class="submit-btn">
-                    </div>
-                </form>
-                <div>
-                    <p id="message"></p>
-                </div>
-            </div>          
+        <div class="form-content">
+            <form action="" method="">
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="text" name="email" id="email" placeholder="Email">
+                <input type="text" name="status" id="status" placeholder="Status">
+                <input type="button" value="Update Info" onclick="updateUser()" class="submit-btn">
+            </form>
+            <div>
+                <p id="message"></p>
+            <div>
         </div>
-        
-        <div id="footer">
-			<div class="footer-content">
-				<p>Copyright &copy; 2018 My Diary</p>
-			</div>
-        </div>
-        <!--Adding javascript files-->
+        <!--Adding scripts -->
         <script type="text/javascript" src="static/js/main.js"></script>
         <script type="text/javascript" src="static/js/api.js"></script>
     </body>
-</html> 
+</html>  
