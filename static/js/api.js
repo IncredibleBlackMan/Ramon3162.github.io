@@ -19,8 +19,6 @@ const registerUser = () => {
     .then(registerData => {
       if(registerData.message === "User created successfully"){
         window.location.replace("./login.html");
-        console.log(registerData.User.user_id);
-        sessionStorage.setItem("user_id", registerData.User.user_id);
       }else{
           document.getElementById('error-message').innerHTML = registerData.message;
       }
@@ -53,7 +51,6 @@ const loginUser = () => {
 
 const getUser = () => {
   const userId = sessionStorage.getItem("userId");
-  console.log(userId);
   fetch( `https://thee-diary-app.herokuapp.com/users/${userId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
@@ -63,8 +60,7 @@ const getUser = () => {
   .then(response => response.json())
   .then(userData => {
   if(userData.message === "User retrieved successfully"){
-    if(window.location.href === "https://ramon3162.github.io/profile.html"){
-      console.log(userData.message);    
+    if(window.location.href === "https://ramon3162.github.io/profile.html"){    
       document.getElementById("username").innerHTML += `<h2>${userData.User.username}</h2>`;
       document.getElementById("status").innerHTML += `<p>${userData.User.status}</p>`;
       document.getElementById("entry-number").innerHTML = `(${userData.User.entries})`;
