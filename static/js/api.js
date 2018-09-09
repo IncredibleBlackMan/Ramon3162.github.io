@@ -1,6 +1,6 @@
-let signupUrl = 'http://127.0.0.1:5000/auth/signup';
-let loginUrl = 'http://127.0.0.1:5000/auth/login';
-let entriesUrl = 'http://127.0.0.1:5000/api/v1/entries';
+let signupUrl = 'https://thee-diary-app.herokuapp.com//auth/signup';
+let loginUrl = 'https://thee-diary-app.herokuapp.com//auth/login';
+let entriesUrl = 'https://thee-diary-app.herokuapp.com//api/v1/entries';
 
 const registerUser = () => {
   fetch(signupUrl, {
@@ -54,7 +54,7 @@ const loginUser = () => {
 const getUser = () => {
   const userId = sessionStorage.getItem("userId");
   console.log(userId);
-  fetch( `http://127.0.0.1:5000/users/${userId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com//users/${userId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -63,7 +63,7 @@ const getUser = () => {
   .then(response => response.json())
   .then(userData => {
   if(userData.message === "User retrieved successfully"){
-    if(window.location.href === "file:///C:/Users/user/Desktop/AndelaProject/My-Diary/feature/profile.html"){
+    if(window.location.href === "https://ramon3162.github.io/profile.html"){
       console.log(userData.message);    
       document.getElementById("username").innerHTML += `<h2>${userData.User.username}</h2>`;
       document.getElementById("status").innerHTML += `<p>${userData.User.status}</p>`;
@@ -135,7 +135,7 @@ const publishEntry = () => {
 const deleteEntry = (entryId) => {
   let confirmation = confirm("Are you sure you want to delete this entry?");
   if(confirmation == true){
-    fetch( `http://127.0.0.1:5000/api/v1/entries/${entryId}`, {
+    fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
       method: 'DELETE',
       headers: {
         'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
@@ -161,7 +161,7 @@ const getSingleTableEntry = (entryId) => {
 
 const showSingleEntry = () => {
   const entryId = sessionStorage.getItem("id");
-  fetch( `http://127.0.0.1:5000/api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -191,7 +191,7 @@ const editSingleEntry = (entryId) => {
 
 const showEditEntry = () => {
   const entryId = sessionStorage.getItem("id");
-  fetch( `http://127.0.0.1:5000/api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -212,7 +212,7 @@ const showEditEntry = () => {
 
 
 const editEntry = (entryId) => {
-  fetch( `http://127.0.0.1:5000/api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
     method: 'PUT',
     body: JSON.stringify({
       title: document.getElementById('title').value,
@@ -235,7 +235,7 @@ const editEntry = (entryId) => {
 
 const updateUser = () => {
   const userId = sessionStorage.getItem("userId");
-  fetch( `http://127.0.0.1:5000/users/${userId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com//users/${userId}`, {
     method: 'PUT',
     body: JSON.stringify({
       username: document.getElementById('username').value,
