@@ -1,6 +1,6 @@
-let signupUrl = 'https://thee-diary-app.herokuapp.com//auth/signup';
-let loginUrl = 'https://thee-diary-app.herokuapp.com//auth/login';
-let entriesUrl = 'https://thee-diary-app.herokuapp.com//api/v1/entries';
+let signupUrl = 'https://thee-diary-app.herokuapp.com/auth/signup';
+let loginUrl = 'https://thee-diary-app.herokuapp.com/auth/login';
+let entriesUrl = 'https://thee-diary-app.herokuapp.com/api/v1/entries';
 
 const registerUser = () => {
   fetch(signupUrl, {
@@ -54,7 +54,7 @@ const loginUser = () => {
 const getUser = () => {
   const userId = sessionStorage.getItem("userId");
   console.log(userId);
-  fetch( `https://thee-diary-app.herokuapp.com//users/${userId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com/users/${userId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -135,7 +135,7 @@ const publishEntry = () => {
 const deleteEntry = (entryId) => {
   let confirmation = confirm("Are you sure you want to delete this entry?");
   if(confirmation == true){
-    fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
+    fetch( `https://thee-diary-app.herokuapp.com/api/v1/entries/${entryId}`, {
       method: 'DELETE',
       headers: {
         'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
@@ -161,7 +161,7 @@ const getSingleTableEntry = (entryId) => {
 
 const showSingleEntry = () => {
   const entryId = sessionStorage.getItem("id");
-  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com/api/v1/entries/${entryId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -191,7 +191,7 @@ const editSingleEntry = (entryId) => {
 
 const showEditEntry = () => {
   const entryId = sessionStorage.getItem("id");
-  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com/api/v1/entries/${entryId}`, {
     headers: {
      'Authorization' : `Bearer ${sessionStorage.getItem("token")}`,
      'Content-type' : 'applicatin/json;'
@@ -212,7 +212,7 @@ const showEditEntry = () => {
 
 
 const editEntry = (entryId) => {
-  fetch( `https://thee-diary-app.herokuapp.com//api/v1/entries/${entryId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com/api/v1/entries/${entryId}`, {
     method: 'PUT',
     body: JSON.stringify({
       title: document.getElementById('title').value,
@@ -235,7 +235,7 @@ const editEntry = (entryId) => {
 
 const updateUser = () => {
   const userId = sessionStorage.getItem("userId");
-  fetch( `https://thee-diary-app.herokuapp.com//users/${userId}`, {
+  fetch( `https://thee-diary-app.herokuapp.com/users/${userId}`, {
     method: 'PUT',
     body: JSON.stringify({
       username: document.getElementById('username').value,
